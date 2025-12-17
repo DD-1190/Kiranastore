@@ -1,4 +1,4 @@
-import { Category } from './types';
+import { Category, Product } from './types';
 
 export const CATEGORIES: Category[] = [
   {
@@ -40,3 +40,118 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PROFILE_IMAGE = "https://lh3.googleusercontent.com/aida-public/AB6AXuDsA8_fjM9kJ8QUT3Ea04JMk633yGaLfr_vMvfBziHao2k_6EbGYV2X7NMyRrrbuIWA95e-Wb1640ZHeFctDtSKaGVbnAno5c7ZY8Fru-k-5L6_kZqkKnMSNE0arVB4QqIHrmoJtHY2RG9wfZe7Tujg3ri2ARiw5I3dLnqzXEtv0n6Z5Rror74d89Uxpkmy8HKOFheRmt9fThgvFsmrIDh2ldIneHqySoFptaW_qwo54kMyQ1dViia1E5oSUKYpjdtyue7vtdsRlBvV";
+
+export const PRODUCTS: Product[] = [
+  // Daily Essentials
+  {
+    id: 'p1',
+    categoryId: '1',
+    name: 'Fortune Sun Lite Refined Sunflower Oil',
+    weight: '1 L',
+    price: 135,
+    originalPrice: 160,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/19760a.jpg',
+    isBestSeller: true
+  },
+  {
+    id: 'p2',
+    categoryId: '1',
+    name: 'Aashirvaad Shudh Chakki Atta',
+    weight: '5 kg',
+    price: 240,
+    originalPrice: 285,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/160a.jpg'
+  },
+  {
+    id: 'p3',
+    categoryId: '1',
+    name: 'Tata Salt Vacuum Evaporated Iodised Salt',
+    weight: '1 kg',
+    price: 28,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/30674a.jpg'
+  },
+
+  // Dairy & Bakery
+  {
+    id: 'p4',
+    categoryId: '2',
+    name: 'Amul Taaza Homogenised Toned Milk',
+    weight: '500 ml',
+    price: 27,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/192a.jpg',
+    isBestSeller: true
+  },
+  {
+    id: 'p5',
+    categoryId: '2',
+    name: 'Britannia 100% Whole Wheat Bread',
+    weight: '400 g',
+    price: 45,
+    originalPrice: 50,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/546a.jpg'
+  },
+  {
+    id: 'p6',
+    categoryId: '2',
+    name: 'Amul Salted Butter Block',
+    weight: '100 g',
+    price: 58,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/115a.jpg'
+  },
+
+  // Snacks & Drinks
+  {
+    id: 'p7',
+    categoryId: '3',
+    name: 'Lay\'s India\'s Magic Masala Potato Chips',
+    weight: '50 g',
+    price: 20,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/11690a.jpg',
+    isBestSeller: true
+  },
+  {
+    id: 'p8',
+    categoryId: '3',
+    name: 'Coca-Cola Soft Drink',
+    weight: '750 ml',
+    price: 40,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/326a.jpg'
+  },
+  {
+    id: 'p9',
+    categoryId: '3',
+    name: 'Kurkure Masala Munch Crisps',
+    weight: '90 g',
+    price: 20,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/16817a.jpg'
+  },
+
+  // Fresh Produce
+  {
+    id: 'p10',
+    categoryId: '4',
+    name: 'Fresh Onion',
+    weight: '1 kg',
+    price: 35,
+    originalPrice: 60,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/3831a.jpg'
+  },
+  {
+    id: 'p11',
+    categoryId: '4',
+    name: 'Fresh Tomato - Hybrid',
+    weight: '500 g',
+    price: 18,
+    originalPrice: 25,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/3581a.jpg',
+    isBestSeller: true
+  },
+  {
+    id: 'p12',
+    categoryId: '4',
+    name: 'Banana - Robusta',
+    weight: '1 kg',
+    price: 45,
+    image: 'https://cdn.grofers.com/cdn-cgi/image/f=auto,fit=scale-down,q=85,metadata=none,w=270,h=270/app/images/products/sliding_image/4397a.jpg'
+  }
+];

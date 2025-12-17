@@ -13,3 +13,14 @@ export interface NavItem {
   isCart?: boolean;
   count?: number;
 }
+
+export interface Product {
+  id: string;
+  categoryId: string;
+  name: string;
+  weight: string;
+  price: number;
+  originalPrice?: number;
+  image: string;
+  isBestSeller?: boolean;
+}

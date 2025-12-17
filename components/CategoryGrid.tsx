@@ -2,25 +2,38 @@ import React from 'react';
 import { CATEGORIES } from '../constants';
 import { Icon } from './Icon';
 import { Category } from '../types';
+import { useStore } from '../StoreContext';
 
-const CategoryItem: React.FC<{ category: Category }> = ({ category }) => (
-  <div className="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform">
+const CategoryItem: React.FC<{ category: Category }> = ({ category }) => {
+  const { setView, setSelectedCategory } = useStore();
+
+  const handleClick = () => {
+    setSelectedCategory(category);
+    setView('category');
+  };
+
+  return (
     <div 
-      className="size-[72px] rounded-2xl overflow-hidden relative shadow-sm flex items-center justify-center p-0 transition-shadow hover:shadow-md"
-      style={{ backgroundColor: category.color }} // Use inline style for dynamic hex colors not in Tailwind theme
+      onClick={handleClick}
+      className="flex flex-col items-center gap-2 group cursor-pointer active:scale-95 transition-transform"
     >
-      <img 
-        src={category.image} 
-        alt={category.name} 
-        className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" 
-        loading="lazy"
-      />
+      <div 
+        className="size-[72px] rounded-2xl overflow-hidden relative shadow-sm flex items-center justify-center p-0 transition-shadow hover:shadow-md"
+        style={{ backgroundColor: category.color }} 
+      >
+        <img 
+          src={category.image} 
+          alt={category.name} 
+          className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-normal" 
+          loading="lazy"
+        />
+      </div>
+      <p className="text-slate-700 dark:text-slate-300 text-[11px] font-bold leading-tight text-center max-w-[64px]">
+        {category.name}
+      </p>
     </div>
-    <p className="text-slate-700 dark:text-slate-300 text-[11px] font-bold leading-tight text-center max-w-[64px]">
-      {category.name}
-    </p>
-  </div>
-);
+  );
+};
 
 const StaticCategoryItem: React.FC<{ 
   icon: string; 
@@ -40,6 +53,14 @@ const StaticCategoryItem: React.FC<{
 
 
 const CategoryGrid: React.FC = () => {
+  const { setView, setSelectedCategory } = useStore();
+  
+  const handleSeeAll = () => {
+    // For demonstration, clicking "See All" opens the first category
+    setSelectedCategory(CATEGORIES[0]);
+    setView('category');
+  };
+
   return (
     <>
       <div className="px-4 pt-6 pb-4 flex items-center justify-between">
@@ -49,7 +70,10 @@ const CategoryGrid: React.FC = () => {
           </h2>
           <span className="text-xs text-slate-500 font-medium">Find what you need</span>
         </div>
-        <button className="text-xs font-bold text-primary-dark hover:text-primary-dark/80 transition-colors bg-primary/10 px-3 py-1.5 rounded-full">
+        <button 
+          onClick={handleSeeAll}
+          className="text-xs font-bold text-primary-dark hover:text-primary-dark/80 transition-colors bg-primary/10 px-3 py-1.5 rounded-full"
+        >
           See all
         </button>
       </div>
@@ -60,7 +84,7 @@ const CategoryGrid: React.FC = () => {
             <CategoryItem key={cat.id} category={cat} />
           ))}
           
-          {/* Static Items (Pharma, See All) */}
+          {/* Static Items */}
           <StaticCategoryItem 
             icon="medication" 
             label="Pharma" 
@@ -68,12 +92,14 @@ const CategoryGrid: React.FC = () => {
             iconColorClass="text-red-400 text-[32px]" 
           />
           
-          <StaticCategoryItem 
-            icon="grid_view" 
-            label="See All" 
-            bgColorClass="bg-white border border-slate-200 dark:bg-surface-dark dark:border-slate-700" 
-            iconColorClass="text-slate-400 text-[28px]" 
-          />
+          <div onClick={handleSeeAll}>
+            <StaticCategoryItem 
+              icon="grid_view" 
+              label="See All" 
+              bgColorClass="bg-white border border-slate-200 dark:bg-surface-dark dark:border-slate-700" 
+              iconColorClass="text-slate-400 text-[28px]" 
+            />
+          </div>
         </div>
       </div>
     </>
